@@ -1,9 +1,13 @@
 package main
 
 import (
+	"context"
 	_case "first-demo/case"
+	p2 "first-demo/generic"
 	p1 "first-demo/package1"
 	"fmt"
+	"os"
+	"os/signal"
 )
 
 //TIP <p>To run your code, right-click the code and select <b>Run</b>.</p> <p>Alternatively, click
@@ -70,4 +74,16 @@ func main() {
 
 	fmt.Println("FlowControl===")
 	p1.FlowControl()
+
+	fmt.Println("Generic===")
+	p2.SampleCase()
+	p2.CusNumCase()
+	p2.BuildInCase()
+	p2.TTypeCase()
+	p2.TTypeCase1()
+	p2.InterfaceCase()
+	p2.ReceiverCase()
+	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, os.Kill)
+	defer stop()
+	<-ctx.Done()
 }
