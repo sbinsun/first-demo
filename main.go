@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	_case "first-demo/case"
+	channel "first-demo/channel"
 	p2 "first-demo/generic"
 	p1 "first-demo/package1"
 	"fmt"
@@ -83,6 +84,10 @@ func main() {
 	p2.TTypeCase1()
 	p2.InterfaceCase()
 	p2.ReceiverCase()
+
+	fmt.Println("channel===")
+	//channel.CommunicationCase()
+	channel.NotifyAndMultiplexingCase()
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, os.Kill)
 	defer stop()
 	<-ctx.Done()
