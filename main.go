@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 	_case "first-demo/case"
-	channel "first-demo/channel"
+	_func "first-demo/func"
 	p2 "first-demo/generic"
 	p1 "first-demo/package1"
 	"fmt"
@@ -87,7 +87,12 @@ func main() {
 
 	fmt.Println("channel===")
 	//channel.CommunicationCase()
-	channel.NotifyAndMultiplexingCase()
+	//channel.NotifyAndMultiplexingCase()
+
+	fmt.Println("func===")
+	//_func.FuncCase()
+	fmt.Println("===", _func.Fib(10))
+
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, os.Kill)
 	defer stop()
 	<-ctx.Done()
